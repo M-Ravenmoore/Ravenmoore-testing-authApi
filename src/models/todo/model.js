@@ -3,8 +3,10 @@
 const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema({
-  name: { type: String, required: true },
-  todo: { type: String, required: true },
+  assignee: { type: String, required: true },
+  text: { type: String, required: true },
+  complete: {type:Boolean},
+  difficulty: {type:Number},  
 });
 
 const todoModel = mongoose.model('tods', todoSchema);
