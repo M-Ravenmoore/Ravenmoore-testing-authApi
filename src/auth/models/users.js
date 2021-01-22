@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { options } = require('../routes');
 
 const users = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
@@ -16,6 +15,9 @@ const users = new mongoose.Schema({
 users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
+    role: this.role,
+    token: this.token,
+    capabilities: this.capabilities,
   };
   return jwt.sign(tokenObject, process.env.SECRET);
 });
