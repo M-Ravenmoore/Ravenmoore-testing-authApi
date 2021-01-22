@@ -17,7 +17,7 @@ beforeAll(async (done) => {
   done();
 });
 
-xdescribe('Auth Middleware', () => {
+describe('Auth Middleware', () => {
 
   // Mock the express req/res/next that we need for each middleware call
   const req = {};

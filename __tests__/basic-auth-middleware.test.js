@@ -23,11 +23,11 @@ describe('Auth Middleware', () => {
   const req = {};
   const res = {
     status: jest.fn(() => res),
-    send: jest.fn(() => res)
-  }
+    send: jest.fn(() => res),
+  };
   const next = jest.fn();
 
-  xdescribe('user authentication', () => {
+  describe('user authentication', () => {
 
     it('fails a login for a user (admin) with the incorrect basic credentials', () => {
 
@@ -42,7 +42,7 @@ describe('Auth Middleware', () => {
           expect(res.status).toHaveBeenCalledWith(403);
         });
 
-    }); // it()
+    });
 
     it('logs in an admin user with the right credentials', () => {
 
@@ -56,7 +56,7 @@ describe('Auth Middleware', () => {
           expect(next).toHaveBeenCalledWith();
         });
 
-    }); // it()
+    });
 
   });
 
