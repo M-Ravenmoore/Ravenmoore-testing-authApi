@@ -23,9 +23,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(authRoutes);
 app.use('/api/v1', v1Routes);
 app.use('/api/v2', v2Routes);
+app.get('/', homeHandler);
 
 app.use('*', notFoundHandler);
 app.use(errorHandler);
+
+function homeHandler(request, response){
+  response.status(200).send('Dragon Test Api is Alive');
+}
 
 module.exports = {
   server: app,
